@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, {useEffect, useState} from 'react'
-import { API_URL_PROFILE } from '../utils/constant';
+import { API_URL_PROFILE, API_URL_SR } from '../utils/constant';
 import { Link, useParams } from "react-router-dom";
-import { Card, Badge } from 'react-bootstrap';
-import { ArrowBackIos, Circle, People, Visibility} from '@mui/icons-material';
+import { Badge, Button } from 'react-bootstrap';
+import { ArrowBack, People, Visibility, Circle} from '@mui/icons-material';
 
 function RoomStream() {
     const [names, setNames] = useState("");
@@ -25,15 +25,16 @@ function RoomStream() {
         getNames();
     });
 
-    // console.log(names);
+    console.log(names);
 
     return (
-        <div style={{color:'black',}}>
-            <span style={{margin:'8px 0 10px 20px', fontWeight:'bold', fontSize:'18px', color:'#222831'}}>{names.room_name}</span>
-            {names.is_onlive === true ? (<Badge bg="danger" style={{display:'inline'}} ><Circle style={{fontSize:12,marginBottom:3}} /> Live</Badge>) : (<Badge bg="danger" style={{display:'inline'}} ><Circle style={{fontSize:12,marginBottom:3}} /> Not Live</Badge>)} 
-            <Badge bg="success" style={{display:'inline', margin:'0 0 0 10px'}} ><Visibility style={{fontSize:12,marginBottom:3}} /> {names.view_num}</Badge> 
-            <Badge bg="primary" style={{display:'inline', margin:'0 0 0 10px'}} ><People style={{fontSize:12,marginBottom:3}} /> {names.follower_num}</Badge> 
-            <Link style={{ display: "inline", margin: "10px 0 0 20px", backgroundColor: '#0D6EFD', padding: '5px 10px 5px 10px', borderRadius: 5, color: 'white', textDecoration: 'none' }} to={`/`}><ArrowBackIos style={{fontSize:18, marginBottom:3, }}/>Go Back</Link> </div>
+        <div style={{color:'black',display:'flex', justifyContent:'center', alignItems:'center', marginTop:13}}>
+            <Link style={{ fontSize:12,display: "inline", backgroundColor: '#FFCA2C', padding: '5px 10px 4px 10px', borderRadius: 5, color: 'white', textDecoration: 'none' , fontWeight:'bold'}} to={`/`}><ArrowBack style={{fontSize:14, marginBottom:2, }}/> Back</Link> 
+            <Button variant="danger" href={`${API_URL_SR + names.room_url_key}`} style={{margin:'0 0 0 10px',  padding: '5px 10px 4px 10px', fontSize:12, }}>Showroom</Button>
+            <span style={{margin:'0 20px 0 20px', fontWeight:'bold', fontSize:'18px', color:'#222831'}}>{names.room_url_key}</span>
+            <Badge bg="success" style={{display:'inline', margin:'0 0 0 0',padding: '5px 10px 4px 10px'}} ><Visibility style={{fontSize:14,marginBottom:2}} /> {names.view_num}</Badge> 
+            <Badge bg="primary" style={{display:'inline', margin:'0 0 0 10px',padding: '5px 10px 4px 10px'}} ><People style={{fontSize:14,marginBottom:2}} /> {names.follower_num}</Badge> 
+        </div>
     )
 }
 

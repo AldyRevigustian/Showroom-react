@@ -28,6 +28,11 @@ export default function Room(props) {
         getRoom();
     }, []);
 
+    // useEffect(()=> {
+    //     setTimeout( async () => {
+    //         getRoom();
+    //     },100)
+    // },[])
 
     // console.log(profiles);
     return (

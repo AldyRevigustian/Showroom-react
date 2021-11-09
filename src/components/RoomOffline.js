@@ -1,10 +1,9 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Card, Badge } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { API_URL_PROFILE } from "../utils/constant";
-import { Link} from "react-router-dom";
-import { Circle } from "@mui/icons-material";
+
 
 
 export default function RoomOffline(props) {
@@ -28,8 +27,13 @@ export default function RoomOffline(props) {
         getRoom();
     }, []);
 
+    // useEffect(()=> {
+    //     setTimeout( async () => {
+    //         getRoom();
+    //     },100)
+    // },[])
 
-    console.log(profiles);
+    // console.log(profiles);
     return (
         <div>
             {profiles.is_onlive === false ? (

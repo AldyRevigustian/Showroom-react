@@ -47,8 +47,8 @@ function Video(props) {
                     src={video}
                     autoPlay={true}
                     controls={true}
-                    width="auto"
-                    height="460px"
+                    width="766px"
+                    height="auto"
                     muted={true}
                 />
             )

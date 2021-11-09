@@ -6,6 +6,7 @@ import { useParams } from "react-router";
 import axios from "axios";
 import { API_URL_PROFILE } from "../utils/constant";
 import { Link } from "react-router-dom";
+import Ranks from "./LiveRank";
 
 
 function Streaming() {
@@ -28,16 +29,19 @@ function Streaming() {
         getProfiles();
     }, []);
 
-    console.log(profiles);
+    // console.log(profiles);
     return (
         <>
             {profiles.is_onlive === true ? (
-                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100vh', flex: 1, backgroundColor: '#222831', padding: 100 }}>
-                    <div className="kiri" style={{ display: 'flex', flexDirection: 'column', flex: "80%", backgroundColor: '#EEEEEE', height: '500px' }}>
+                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100vh', flex: 1, backgroundColor: '#222831', padding: 0 }}>
+                    <div className="kiri" style={{ display: 'flex', flexDirection: 'column', flex: "20%", backgroundColor: '#EEEEEE', height: '500px' }}>
+                        <Ranks />
+                    </div>
+                    <div className="kiri" style={{ display: 'flex', flexDirection: 'column', flex: "60%", backgroundColor: '#EEEEEE', height: '500px' }}>
                         <Videos />
                         <RoomStream />
                     </div>
-                    <div className="kanan" style={{ display: 'flex', flexDirection: 'column', height: '500px', width: 300, flex: "20%" }}>
+                    <div className="kanan" style={{ display: 'flex', flexDirection: 'column', height: '500px',flex: "20%" }}>
                         <Comments />
                     </div>
                 </div>

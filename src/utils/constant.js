@@ -2,7 +2,9 @@ export const API_URL_ONLIVES = "https://www.showroom-live.com/api/live/onlives"
 export const API_URL_STREAM = "https://www.showroom-live.com/api/live/streaming_url?room_id="
 export const API_URL_PROFILE = "https://www.showroom-live.com/api/room/profile?room_id="
 export const API_URL_COMMENT = "https://www.showroom-live.com/api/live/comment_log?room_id="
-
+export const API_URL_RANK = "https://www.showroom-live.com/api/live/stage_user_list?room_id="
+export const API_URL_USER = "https://www.showroom-live.com/api/live/current_user?room_id=373546"
+export const API_URL_SR = "https://www.showroom-live.com/"
 
 export const memberId = [
     "318207",
@@ -31,4 +33,6 @@ export const memberId = [
     "317731",
     "317724",
     "318208",
+    "318229",
+    "329376" //
 ];
