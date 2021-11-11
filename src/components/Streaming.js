@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Videos from "./Videos";
 import Comments from "./Comments";
-import RoomStream from "./RoomStream";
+import PropertyStream from "./PropertyStream";
 import { useParams } from "react-router";
 import axios from "axios";
 import { API_URL_PROFILE } from "../utils/constant";
 import { Link } from "react-router-dom";
 import Ranks from "./LiveRank";
+import GiftLog from "./GiftLog";
 
 
 function Streaming() {
@@ -27,7 +28,7 @@ function Streaming() {
 
     useEffect(() => {
         getProfiles();
-    }, []);
+    }, []);// eslint-disable-line react-hooks/exhaustive-deps
 
     // console.log(profiles);
     return (
@@ -39,7 +40,7 @@ function Streaming() {
                     </div>
                     <div className="kiri" style={{ display: 'flex', flexDirection: 'column', flex: "60%", backgroundColor: '#EEEEEE', height: '500px' }}>
                         <Videos />
-                        <RoomStream />
+                        <PropertyStream />
                     </div>
                     <div className="kanan" style={{ display: 'flex', flexDirection: 'column', height: '500px',flex: "20%" }}>
                         <Comments />

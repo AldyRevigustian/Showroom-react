@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Room from "./components/Room";
+import RoomOnline from "./components/RoomOnline";
 import RoomOffline from "./components/RoomOffline";
 import { memberId, API_URL_USER } from "./utils/constant";
 import './style.css';
@@ -35,7 +35,7 @@ function App() {
             {memberId.map((member) => {
               return (
                 <div>
-                  <Room profile_id={member} />
+                  <RoomOnline profile_id={member} />
                 </div>
               );
             })}

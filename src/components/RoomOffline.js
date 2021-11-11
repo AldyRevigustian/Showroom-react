@@ -25,7 +25,7 @@ export default function RoomOffline(props) {
 
     useEffect(() => {
         getRoom();
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     // useEffect(()=> {
     //     setTimeout( async () => {

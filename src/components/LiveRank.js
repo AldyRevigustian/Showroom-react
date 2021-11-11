@@ -31,7 +31,7 @@ function Ranks() {
             ranks.stage_user_list.map((rank) => (
                 <div style={{transform: "scaleX(-1)"}}>
                     <div className="" style={{padding:'14px 0 0 10px'}}>
-                        <span style={{color:'white', fontSize:13}}>{rank.rank}</span><img style={{width:'10%', margin:'0 10px 0 10px'}} src={rank.user.avatar_url} /><span style={{color:'white', fontSize:12, margin:'10px 0 10px 0', fontWeight:'bold'}}>{rank.user.name}</span>
+                        <span style={{color:'white', fontSize:13}}>{rank.rank}</span><img alt="" style={{width:'10%', margin:'0 10px 0 10px'}} src={rank.user.avatar_url} /><span style={{color:'white', fontSize:12, margin:'10px 0 10px 0', fontWeight:'bold'}}>{rank.user.name}</span>
                     </div>
                 </div>
             ))}

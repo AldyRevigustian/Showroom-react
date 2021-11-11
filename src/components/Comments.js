@@ -30,9 +30,12 @@ function Comments (props) {
             {comments.comment_log &&
                 comments.comment_log.map((comment) => (
                     <>
-                        <div className="comments" style={{padding:'14px 0 0 10px'}}>
-                            <img style={{width:'10%', margin:'0 10px 0 10px'}} src={comment.avatar_url} /><span style={{color:'white', fontSize:13, margin:'10px 0 10px 0', fontWeight:'bold'}}>{comment.name}</span>
-                            <p  style={{color:'white',fontSize:13, margin:'10px 0 0px 10px'}}>{comment.comment}</p>
+                        <div className="comments" style={{padding:'14px 0 0 10px', display:'flex', flexDirection:'row'}}>
+                            <img style={{width:'10%',height:'70%' ,margin:'5px 10px 0 10px', display:'flex', flex:0.4}} src={comment.avatar_url} />
+                                <div style={{display:'flex', flexDirection:'column', flex:3}}>
+                                    <span style={{color:'white', fontSize:13, margin:'0px 0 0px 0', fontWeight:'bold'}}>{comment.name}</span>
+                                    <span style={{color:'white',fontSize:13, margin:'0px 0 0 0'}}>{comment.comment}</span>
+                                </div>
                         </div>
                     </>
                 ))}

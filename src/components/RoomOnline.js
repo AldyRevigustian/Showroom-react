@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Card, Badge } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { API_URL_PROFILE } from "../utils/constant";
 import { Link} from "react-router-dom";
 import { Circle } from "@mui/icons-material";
+import './style.css';
 
 
-export default function Room(props) {
+export default function RoomOnline(props) {
     const [profiles, setProfiles] = useState('');
     const { profile_id } = props;
 
@@ -26,7 +27,7 @@ export default function Room(props) {
 
     useEffect(() => {
         getRoom();
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     // useEffect(()=> {
     //     setTimeout( async () => {
@@ -38,7 +39,7 @@ export default function Room(props) {
     return (
         <div>
             {profiles.is_onlive ? (
-                <Card style={{ width: "15rem", margin: 10 }}>
+                <Card  className="animasi-card" style={{ width: "15rem", margin: 10 }}>
                     <Card.Img variant="top" src={profiles.image} />
                     <Card.Body>
                         <Card.Title style={{  fontSize: 13, marginBottom: 10, }}>{profiles.room_name} 
