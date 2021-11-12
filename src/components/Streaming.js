@@ -31,7 +31,7 @@ function Streaming() {
 
     // console.log(profiles);
     return (
-        <>
+        <div style={{ backgroundColor: '#222831', display:'flex'}}>
             {profiles.is_onlive === true ? (
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100vh', flex: 1, backgroundColor: '#222831', padding: 0 }}>
                     <div className="kiri" style={{ display: 'flex', flexDirection: 'column', flex: "20%", backgroundColor: '#EEEEEE', height: '500px' }}>
@@ -48,12 +48,19 @@ function Streaming() {
             )
                 :
                 (
-                    <Link style={{ display: "inline", margin: "10px 0 0 10px", backgroundColor: '#0D6EFD', padding: 5, borderRadius: 5, color: 'white', textDecoration: 'none' }}
+                <div style={{display:'flex', justifyContent:'center', alignItems:'center', height:'100vh', flex:1, flexDirection:'column'}}>
+                    <div>
+                        <h2 style={{color:'white'}}>The Streamer Is Offline / No Streamer With This ID</h2>
+                    </div>
+                    <div style={{marginTop:30}}>
+                        <Link style={{ display: "inline", fontWeight:'bold',fontSize:'30px',backgroundColor: '#FF0000', padding: 10, borderRadius: 10, color: 'white', textDecoration: 'none' }}
                         to={`/`}> Go Back</Link>
+                    </div>
+                </div>
                 )
             }
 
-        </>
+        </div>
     );
 }
 

@@ -41,7 +41,7 @@ function Videos() {
 function Video(props) {
     const { keys, video } = props;
     return (
-        <div>
+        <div style={{backgroundColor:'#393E46',}}>
             {keys === 2 ? (
                 <ReactHlsPlayer
                     src={video}
