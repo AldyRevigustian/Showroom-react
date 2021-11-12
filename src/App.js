@@ -13,8 +13,8 @@ function App() {
           <div className="rows" style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-start', marginLeft: 20 }}>
             {memberId.map((member) => {
               return (
-                <div>
-                  <RoomOnline profile_id={member} />
+                <div key={member}>
+                  <RoomOnline  profile_id={member} />
                 </div>
               );
             })}
@@ -26,7 +26,7 @@ function App() {
           <div className="rows" style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', jjustifyContent: 'flex-start', marginLeft: 20 }}>
             {memberId.map((member) => {
               return (
-                <div>
+                <div key={member} >
                   <RoomOffline profile_id={member} />
                 </div>
               );

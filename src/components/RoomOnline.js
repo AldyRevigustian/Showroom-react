@@ -4,7 +4,6 @@ import { Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { API_URL_PROFILE } from "../utils/constant";
 import { Link} from "react-router-dom";
-import { Circle } from "@mui/icons-material";
 import './style.css';
 
 
@@ -47,7 +46,7 @@ export default function RoomOnline(props) {
                             <Link
                                 style={{ display: "inline", backgroundColor: 'red', padding: 5, borderRadius: 5, color: 'white', textDecoration: 'none', fontSize:15 }}
                                 to={`/streaming/${profiles.room_id}`}>
-                            <Circle style={{fontSize:12,marginBottom:3}} /> Live </Link>
+                            Live </Link>
                         
                     </Card.Body>
                 </Card>

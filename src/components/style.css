@@ -1,6 +1,7 @@
 .animasi-card {
-    animation-duration: 1s;
+    animation-duration: .5s;
     animation-name: slidein;
+    animation-timing-function: ease-in;
 }
 
 @keyframes slidein {
