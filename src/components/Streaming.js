@@ -7,7 +7,6 @@ import axios from "axios";
 import { API_URL_PROFILE } from "../utils/constant";
 import { Link } from "react-router-dom";
 import Ranks from "./LiveRank";
-import GiftLog from "./GiftLog";
 
 
 function Streaming() {
