@@ -27,7 +27,7 @@ function Videos() {
 
     return (
         // console.log(videos),
-            <div className="video" style={{display:'flex', justifyContent:'center'}}>
+            <div className="video" style={{userSelect:'none',display:'flex', justifyContent:'center'}}>
                 {videos.streaming_url_list &&
                     videos.streaming_url_list.map((video) => (
                         <>
@@ -41,7 +41,7 @@ function Videos() {
 function Video(props) {
     const { keys, video } = props;
     return (
-        <div style={{backgroundColor:'#393E46',}}>
+        <div style={{backgroundColor:'#393E46',userSelect:'none',}}>
             {keys === 2 ? (
                 <ReactHlsPlayer
                     src={video}

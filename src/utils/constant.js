@@ -5,6 +5,7 @@ export const API_URL_COMMENT = "https://www.showroom-live.com/api/live/comment_l
 export const API_URL_RANK = "https://www.showroom-live.com/api/live/stage_user_list?room_id="
 export const API_URL_USER = "https://www.showroom-live.com/api/live/current_user?room_id=373546"
 export const API_URL_SR = "https://www.showroom-live.com/"
+export const API_URL_GIFT = "https://www.showroom-live.com/api/live/gift_log?room_id="
 
 export const memberId = [
     "318207",
@@ -34,5 +35,4 @@ export const memberId = [
     "317724",
     "318208",
     "318229",
-    "296868",//
 ];

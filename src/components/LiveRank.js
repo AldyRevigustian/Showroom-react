@@ -26,7 +26,7 @@ function Ranks() {
 
     // console.log(ranks.stage_user_list);
     return (
-        <div className="ranks" style={{height:'500px', transform: "scaleX(-1)",overflowY:'scroll',width:300, display:'flex', flexDirection:'column', flex:1, backgroundColor:'#393E46'}}>
+        <div className="ranks" style={{userSelect:'none',height:'500px', transform: "scaleX(-1)",overflowY:'scroll',width:300, display:'flex', flexDirection:'column', flex:1, backgroundColor:'#393E46'}}>
         {ranks.stage_user_list &&
             ranks.stage_user_list.map((rank) => (
                 <div style={{transform: "scaleX(-1)"}}>

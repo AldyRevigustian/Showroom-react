@@ -26,7 +26,7 @@ function Comments (props) {
 
     return (
         // console.log(videos.streaming_url_list),
-        <div className="comment" style={{height:'500px', overflowX:'hidden',overflowY:'scroll',width:300, display:'flex', flexDirection:'column', flex:1, backgroundColor:'#393E46'}}>
+        <div className="comment" style={{userSelect:'none', height:'500px', overflowX:'hidden',overflowY:'scroll',width:300, display:'flex', flexDirection:'column', flex:1, backgroundColor:'#393E46'}}>
             {comments.comment_log &&
                 comments.comment_log.map((comment) => (
                     <>

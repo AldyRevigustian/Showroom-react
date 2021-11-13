@@ -1,16 +1,27 @@
 import React, { useState, useEffect } from "react";
 import Videos from "./Videos";
 import Comments from "./Comments";
-import PropertyStream from "./PropertyStream";
+import ProfileStream from "./ProfileStream";
 import { useParams } from "react-router";
 import axios from "axios";
-import { API_URL_PROFILE } from "../utils/constant";
+import { API_URL_PROFILE, API_URL_SR } from "../utils/constant";
 import { Link } from "react-router-dom";
 import Ranks from "./LiveRank";
+import Gifts from "./GiftLog";
+import { Button } from "react-bootstrap";
 
 
 function Streaming() {
     const [profiles, setProfiles] = useState('');
+    const [toggle, setToggle] = useState("rank");
+    
+    const setActiveGift = () => {
+        setToggle("notrank");
+    }
+    const setActiveRank = () => {
+        setToggle("rank");
+    }
+
     let params = useParams();
 
     const getProfiles = () => {
@@ -35,11 +46,15 @@ function Streaming() {
             {profiles.is_onlive === true ? (
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100vh', flex: 1, backgroundColor: '#222831', padding: 0 }}>
                     <div className="kiri" style={{ display: 'flex', flexDirection: 'column', flex: "20%", backgroundColor: '#EEEEEE', height: '500px' }}>
-                        <Ranks />
+                    <div style={{display:'flex', flexDirection:'row',marginTop:'-38px'}}>
+                        <Button onClick={setActiveRank} variant="warning" style={{marginRight:20, marginLeft:45,color: toggle === "rank" ? 'white' : 'black', borderRadius:0}} >Ranks</Button>
+                        <Button onClick={setActiveGift} variant="danger" style={{color: toggle === "notrank" ? 'white' : 'black', borderRadius:0}}>Gifts</Button>
                     </div>
-                    <div className="kiri" style={{ display: 'flex', flexDirection: 'column', flex: "60%", backgroundColor: '#EEEEEE', height: '500px' }}>
+                        {toggle === "rank" ? (<Ranks />) : (<Gifts />)}
+                    </div>
+                    <div className="tengah" style={{ display: 'flex', flexDirection: 'column', flex: "60%", backgroundColor: '#EEEEEE', height: '500px' }}>
                         <Videos />
-                        <PropertyStream />
+                        <ProfileStream />
                     </div>
                     <div className="kanan" style={{ display: 'flex', flexDirection: 'column', height: '500px',flex: "20%" }}>
                         <Comments />
@@ -47,8 +62,8 @@ function Streaming() {
                 </div>
             )
                 :
-                (
-                <div style={{display:'flex', justifyContent:'center', alignItems:'center', height:'100vh', flex:1, flexDirection:'column'}}>
+            (
+                <div style={{userSelect:'none',display:'flex', justifyContent:'center', alignItems:'center', height:'100vh', flex:1, flexDirection:'column'}}>
                     <div>
                         <h2 style={{color:'white'}}>The Streamer Is Offline / No Streamer With This ID</h2>
                     </div>
@@ -56,8 +71,9 @@ function Streaming() {
                         <Link style={{ display: "inline", fontWeight:'bold',fontSize:'30px',backgroundColor: '#FF0000', padding: 10, borderRadius: 10, color: 'white', textDecoration: 'none' }}
                         to={`/`}> Go Back</Link>
                     </div>
+                        <a rel="noreferrer" href={API_URL_SR} target="_blank" style={{color:'white', fontSize:'18px',marginTop:30}}>SHOWROOM</a>
                 </div>
-                )
+            )
             }
 
         </div>
