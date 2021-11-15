@@ -44,7 +44,7 @@ function Streaming() {
     return (
         <DeviceOrientation lockOrientation={'landscape'}>
             <Orientation orientation='landscape' alwaysRender={false}>
-            <div style={{ display: 'flex', alignItems: 'center', height: '100vh', flex: 1, backgroundColor: '#222831', justifyContent: 'center', overflowY:'hidden',overflowX:'hidden', }}>
+            <div style={{ display: 'flex', alignItems: 'center', height: '100vh', flex: 1, backgroundColor: '#222831', justifyContent: 'center',}}>
                 {loading ? (<div style={{ backgroundColor: '#222831', display: 'flex' }}>
                     {profiles.is_onlive === true ? (
                         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100vh', flex: 1, backgroundColor: '#222831', padding: 0 }}>
@@ -97,11 +97,11 @@ function Streaming() {
             </div>
             </Orientation>
 
-            {/* <Orientation orientation='portrait'>
+            <Orientation orientation='portrait'>
                 <div>
                     <p>Please rotate your device</p>
                 </div>
-            </Orientation> */}
+            </Orientation>
         </DeviceOrientation>
     );
 }

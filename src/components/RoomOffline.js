@@ -43,7 +43,7 @@ export default function RoomOffline(props) {
             (
                 <div>
                     {profiles.is_onlive === false ? (
-                        <Card  style={{ width: "245px", margin: 10 }}>
+                        <Card  style={{ width: "15.4rem", margin: 10 }}>
                             <Card.Img variant="top" src={profiles.image} />
                             <Card.Body>
                                 <Card.Title style={{ fontSize: 13, marginBottom: 0}}>{profiles.room_name}</Card.Title>
@@ -59,10 +59,10 @@ export default function RoomOffline(props) {
                 // <div style={{margin:10}}>
                 //     <Spinner animation="grow" variant="secondary"  />
                 // </div>
-                <Card style={{ width: "245px", margin: 10 }}>
+                <Card style={{ width: "15.4rem", margin: 10 }}>
                             <Card.Img variant="top" src={loadings} />
                             <Card.Body>
-                                <Card.Title style={{ fontSize: 13, marginBottom: 0}}></Card.Title>
+                                <Card.Title style={{ fontSize: 13, marginBottom: 0, color:'white'}}>.</Card.Title>
                             </Card.Body>
                 </Card>
             )}
