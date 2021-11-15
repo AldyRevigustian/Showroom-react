@@ -44,7 +44,7 @@ export default function RoomOnline(props) {
             (
                 <div>
                 {profiles.is_onlive ? (
-                    <Card  className="animasi-card" style={{ width: "15rem", margin: 10 }}>
+                    <Card  className="animasi-card" style={{ width: "245px",margin: 10 }}>
                         <Card.Img variant="top" src={profiles.image} />
                         <Card.Body>
                             <Card.Title style={{  fontSize: 13, marginBottom: 10, }}>{profiles.room_name} 

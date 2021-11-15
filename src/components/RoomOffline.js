@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Card , Spinner} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { API_URL_PROFILE } from "../utils/constant";
-import loadings from './loading.png'
+import loadings from '../img/loading.png'
 
 
 
