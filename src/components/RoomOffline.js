@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Card , Spinner} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { API_URL_PROFILE } from "../utils/constant";
+import loadings from './loading.png'
 
 
 
@@ -35,14 +36,14 @@ export default function RoomOffline(props) {
     //     },100)
     // },[])
 
-    // console.log(profiles);
+    console.log(profiles);
     return (
         <div>
             {loading ? 
             (
                 <div>
                     {profiles.is_onlive === false ? (
-                        <Card style={{ width: "15rem", margin: 10 }}>
+                        <Card  style={{ width: "245px", margin: 10 }}>
                             <Card.Img variant="top" src={profiles.image} />
                             <Card.Body>
                                 <Card.Title style={{ fontSize: 13, marginBottom: 0}}>{profiles.room_name}</Card.Title>
@@ -55,10 +56,15 @@ export default function RoomOffline(props) {
             
                 : 
             (
-                <div style={{margin:10}}>
-                    <Spinner animation="grow" variant="secondary"  />
-                </div>
-
+                // <div style={{margin:10}}>
+                //     <Spinner animation="grow" variant="secondary"  />
+                // </div>
+                <Card style={{ width: "245px", margin: 10 }}>
+                            <Card.Img variant="top" src={loadings} />
+                            <Card.Body>
+                                <Card.Title style={{ fontSize: 13, marginBottom: 0}}></Card.Title>
+                            </Card.Body>
+                </Card>
             )}
             
         </div>

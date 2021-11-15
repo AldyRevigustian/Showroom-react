@@ -62,7 +62,7 @@ export default function RoomOnline(props) {
             ) 
                 : 
             (
-                <div style={{margin:10}}>
+                <div style={{marginRight:"-30px", marginTop:'30px', marginLeft:'10px'}}>
                     <Spinner animation="grow" variant="secondary"  />
                 </div>
             )}
