@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import Ranks from "./LiveRank";
 import Gifts from "./GiftLog";
 import { Button, Spinner } from "react-bootstrap";
-import DeviceOrientation, { Orientation } from 'react-screen-orientation'
+// import DeviceOrientation, { Orientation } from 'react-screen-orientation'
 
 
 function Streaming() {
@@ -42,8 +42,8 @@ function Streaming() {
 
     // console.log(profiles);
     return (
-        <DeviceOrientation lockOrientation={'landscape'}>
-            <Orientation orientation='landscape' alwaysRender={false}>
+        // <DeviceOrientation lockOrientation={'landscape'}>
+        //     <Orientation orientation='landscape' alwaysRender={false}>
             <div style={{ display: 'flex', alignItems: 'center', height: '100vh', flex: 1, backgroundColor: '#222831', justifyContent: 'center',}}>
                 {loading ? (<div style={{ backgroundColor: '#222831', display: 'flex' }}>
                     {profiles.is_onlive === true ? (
@@ -95,14 +95,14 @@ function Streaming() {
                         </div>
                     )}
             </div>
-            </Orientation>
+        //     </Orientation>
 
-            <Orientation orientation='portrait'>
-                <div>
-                    <p>Please rotate your device</p>
-                </div>
-            </Orientation>
-        </DeviceOrientation>
+        //     <Orientation orientation='portrait'>
+        //         <div>
+        //             <p>Please rotate your device</p>
+        //         </div>
+        //     </Orientation>
+        // </DeviceOrientation>
     );
 }
 
