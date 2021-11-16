@@ -4,7 +4,7 @@ import Videos from './Videos'
 
 function Tengah() {
     return (
-        <div className="tengah" style={{ display: 'flex', flexDirection: 'column', flex: "60%", backgroundColor: '#EEEEEE', height: '500px' }}>
+        <div className="tengah" style={{ display: 'flex', flexDirection: 'column', flex: "70%", backgroundColor: '#EEEEEE', height: '500px' }}>
             <Videos />
             <ProfileStream />
         </div>

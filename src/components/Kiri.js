@@ -2,26 +2,39 @@ import React, { useState } from 'react'
 import Gifts from './GiftLog'
 import Ranks from './LiveRank'
 import { Button } from "react-bootstrap";
+import Comments from './Comments';
 
 
 function Kiri() {
-    const [toggle, setToggle] = useState("rank");
+    const [toggle, setToggle] = useState("comment");
 
     const setActiveGift = () => {
-        setToggle("notrank");
+        setToggle("gift");
     }
     const setActiveRank = () => {
         setToggle("rank");
+    }
+    const setActiveComment = () => {
+        setToggle("comment");
     }
 
     return (
         <div className="kiri" style={{ display: 'flex', flexDirection: 'column', flex: "20%", backgroundColor: '#EEEEEE', height: '500px' }}>
             <div style={{ display: 'flex', flexDirection: 'row', marginTop: '-38px' }}>
-                <Button onClick={setActiveRank} variant="warning" style={{ marginRight: 20, marginLeft: 45, color: toggle === "rank" ? 'white' : 'black', borderRadius: 0 }} >Ranks</Button>
-                <Button onClick={setActiveGift} variant="danger" style={{ color: toggle === "notrank" ? 'white' : 'black', borderRadius: 0 }}>Gifts</Button>
+                <Button onClick={setActiveComment} variant="success" style={{ color: 'white',  fontWeight: toggle ==='comment' ? 'bold' : "100",borderRadius: "10px 10px 0 0" }}>Comments</Button>
+                <Button onClick={setActiveRank} variant="warning" style={{ color: 'white',  fontWeight: toggle ==='rank' ? 'bold' : "100",borderRadius: "10px 10px 0 0" }} >Ranks</Button>
+                <Button onClick={setActiveGift} variant="danger" style={{ color: 'white',  fontWeight: toggle ==='gift' ? 'bold' : "100",borderRadius: "10px 10px 0 0" }}>Gifts</Button>
             </div>
-            {toggle === "rank" ? (<Ranks />) : (<Gifts />)}
+            {(() => {
+                switch (toggle) {
+                case "comment":  return (<Comments />);
+                case "rank":   return (<Ranks />);
+                case "gift": return (<Gifts />);
+                default:      return (<Comments />);
+            }
+            })()}
         </div>
+        
     )
 }
 
