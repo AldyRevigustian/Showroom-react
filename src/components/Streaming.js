@@ -1,28 +1,18 @@
 import React, { useState, useEffect } from "react";
-import Videos from "./Videos";
-import Comments from "./Comments";
-import ProfileStream from "./ProfileStream";
 import { useParams } from "react-router";
 import axios from "axios";
 import { API_URL_PROFILE, API_URL_SR } from "../utils/constant";
 import { Link } from "react-router-dom";
-import Ranks from "./LiveRank";
-import Gifts from "./GiftLog";
-import { Button, Spinner } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
+import Kiri from "./Kiri";
+import Tengah from "./Tengah";
+import Kanan from "./Kanan";
 // import DeviceOrientation, { Orientation } from 'react-screen-orientation'
 
 
 function Streaming() {
     const [profiles, setProfiles] = useState('');
-    const [toggle, setToggle] = useState("rank");
     const [loading, setLoading] = useState(false);
-
-    const setActiveGift = () => {
-        setToggle("notrank");
-    }
-    const setActiveRank = () => {
-        setToggle("rank");
-    }
 
     let params = useParams();
 
@@ -48,20 +38,16 @@ function Streaming() {
                 {loading ? (<div style={{ backgroundColor: '#222831', display: 'flex' }}>
                     {profiles.is_onlive === true ? (
                         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100vh', flex: 1, backgroundColor: '#222831', padding: 0 }}>
-                            <div className="kiri" style={{ display: 'flex', flexDirection: 'column', flex: "20%", backgroundColor: '#EEEEEE', height: '500px' }}>
-                                <div style={{ display: 'flex', flexDirection: 'row', marginTop: '-38px' }}>
-                                    <Button onClick={setActiveRank} variant="warning" style={{ marginRight: 20, marginLeft: 45, color: toggle === "rank" ? 'white' : 'black', borderRadius: 0 }} >Ranks</Button>
-                                    <Button onClick={setActiveGift} variant="danger" style={{ color: toggle === "notrank" ? 'white' : 'black', borderRadius: 0 }}>Gifts</Button>
-                                </div>
-                                {toggle === "rank" ? (<Ranks />) : (<Gifts />)}
+                            <div>
+                                <Kiri />
                             </div>
-                            <div className="tengah" style={{ display: 'flex', flexDirection: 'column', flex: "60%", backgroundColor: '#EEEEEE', height: '500px' }}>
-                                <Videos />
-                                <ProfileStream />
+                            <div>
+                                <Tengah />
                             </div>
-                            <div className="kanan" style={{ display: 'flex', flexDirection: 'column', height: '500px', flex: "20%" }}>
-                                <Comments />
+                            <div>
+                                <Kanan />
                             </div>
+                            
                         </div>
                     )
                         :

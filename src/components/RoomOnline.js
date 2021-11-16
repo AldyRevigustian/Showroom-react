@@ -47,7 +47,7 @@ export default function RoomOnline(props) {
                     <Card  className="animasi-card" style={{ width: "15rem",margin: 10 }}>
                         <Card.Img variant="top" src={profiles.image} />
                         <Card.Body>
-                            <Card.Title style={{  fontSize: 13, marginBottom: 10, }}>{profiles.room_name} 
+                            <Card.Title style={{fontSize: 13, marginBottom: 10, }}>{profiles.room_name} 
                             </Card.Title>
                                 <Link
                                     style={{ display: "inline", backgroundColor: 'red', padding: 5, borderRadius: 5, color: 'white', textDecoration: 'none', fontSize:15 }}
@@ -62,8 +62,8 @@ export default function RoomOnline(props) {
             ) 
                 : 
             (
-                <div style={{marginRight:"-30px", marginTop:'30px', marginLeft:'10px'}}>
-                    <Spinner animation="grow" variant="secondary"  />
+                <div style={{marginRight:"-45px", marginTop:'30px', marginLeft:'10px'}}>
+                    <Spinner animation="border" variant="secondary"  />
                 </div>
             )}
             

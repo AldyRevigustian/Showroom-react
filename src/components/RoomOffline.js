@@ -56,15 +56,15 @@ export default function RoomOffline(props) {
             
                 : 
             (
-                // <div style={{margin:10}}>
-                //     <Spinner animation="grow" variant="secondary"  />
-                // </div>
-                <Card style={{ width: "15rem", margin: 10 }}>
-                            <Card.Img variant="top" src={loadings} />
-                            <Card.Body>
-                                <Card.Title style={{ fontSize: 13, marginBottom: 0, color:'white'}}>.</Card.Title>
-                            </Card.Body>
-                </Card>
+                <div style={{marginRight:"-45px", marginTop:'30px', marginLeft:'10px'}}>
+                    <Spinner animation="border" variant="secondary"  />
+                </div>
+                // <Card style={{ width: "15rem", margin: 10 }}>
+                //             <Card.Img variant="top" src={loadings} />
+                //             <Card.Body>
+                //                 <Card.Title style={{ fontSize: 13, marginBottom: 0, color:'white'}}>.</Card.Title>
+                //             </Card.Body>
+                // </Card>
             )}
             
         </div>
