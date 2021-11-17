@@ -1,6 +1,6 @@
 import React from "react";
-import RoomOnline from "./components/RoomOnline";
-import RoomOffline from "./components/RoomOffline";
+import RoomOnline from "./components/RoomStream/RoomOnline";
+import RoomOffline from "./components/RoomStream/RoomOffline";
 import { memberId } from "./utils/constant";
 import './style.css';
 
@@ -23,7 +23,7 @@ function App() {
 
         <div className="2" style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap', }} >
           <h3 style={{ margin: '15px 0 0 30px', fontSize: 20, fontWeight: 'bold', color: 'white' }}>Not Live</h3>
-          <div className="rows" style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', jjustifyContent: 'flex-start', marginLeft: 20 }}>
+          <div className="rows" style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-start', marginLeft: 20 }}>
             {memberId.map((member) => {
               return (
                 <div key={member} >

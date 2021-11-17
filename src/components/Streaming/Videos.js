@@ -1,5 +1,5 @@
 import ReactHlsPlayer from "react-hls-player/dist";
-import { API_URL_STREAM} from "../utils/constant";
+import { API_URL_STREAM} from "../../utils/constant";
 import axios from "axios";
 import React, { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";

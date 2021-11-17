@@ -5,7 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import App from "./App";
-import Streaming from "./components/Streaming";
+import Streaming from "./components/Streaming/Streaming";
 
 const rootElement = document.getElementById("root");
 render(

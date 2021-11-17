@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {useEffect, useState} from 'react'
-import { API_URL_PROFILE, API_URL_SR } from '../utils/constant';
+import { API_URL_PROFILE, API_URL_SR } from '../../utils/constant';
 import { Link, useParams } from "react-router-dom";
 import { Badge } from 'react-bootstrap';
 import { ArrowBack, 

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
-import { API_URL_PROFILE, API_URL_SR } from "../utils/constant";
+import { API_URL_PROFILE, API_URL_SR } from "../../utils/constant";
 import { Link } from "react-router-dom";
-import { Spinner } from "react-bootstrap";
+import { Spinner, 
+    // Container, Row, Col 
+} from "react-bootstrap";
 import Kiri from "./Kiri";
 import Tengah from "./Tengah";
 
@@ -35,12 +37,13 @@ function Streaming() {
                 <div style={{ backgroundColor: '#222831', display: 'flex' }}>
                     {profiles.is_onlive === true ? (
                         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100vh', flex: 1, backgroundColor: '#222831', padding: 0 }}>
-                            <div>
-                                <Kiri />
-                            </div>
-                            <div>
-                                <Tengah />
-                            </div>                            
+                                    <div>
+                                        <Kiri />
+                                    </div>
+                                
+                                    <div>
+                                        <Tengah />
+                                    </div>
                         </div>
                     )
                     :
