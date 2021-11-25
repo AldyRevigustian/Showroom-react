@@ -3,6 +3,7 @@ import { API_URL_STREAM} from "../../utils/constant";
 import axios from "axios";
 import React, { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useMediaQuery } from 'react-responsive'
 
 
 function Videos() {
@@ -27,7 +28,7 @@ function Videos() {
 
     return (
         // console.log(videos),
-            <div className="video" style={{userSelect:'none',display:'flex', justifyContent:'center'}}>
+            <div className="video" style={{userSelect:'none',display:'flex', justifyContent:'center',alignContent:'center'}}>
                 {videos.streaming_url_list &&
                     videos.streaming_url_list.map((video) => (
                         <>
@@ -39,22 +40,47 @@ function Videos() {
 }
 
 function Video(props) {
+    const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' })
+    const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+
     const { keys, video } = props;
     return (
-        <div style={{backgroundColor:'#393E46',userSelect:'none',}}>
-            {keys === 2 ? (
-                <ReactHlsPlayer
-                    src={video}
-                    autoPlay={true}
-                    controls={true}
-                    width="766px"
-                    height="auto"
-                    muted={true}
-                />
-            )
-                :
-                ""
-            }
+        <div style={{backgroundColor:'#393E46',userSelect:'none'}}>
+            {isDesktopOrLaptop && 
+            <div>
+                {keys === 2 ? (
+                    <ReactHlsPlayer
+                        src={video}
+                        autoPlay={true}
+                        controls={true}
+                        width="766px"
+                        height="auto"
+                        muted={true}
+                    />
+                )
+                    :
+                    ""
+                }
+            </div>}
+
+            {isTabletOrMobile && 
+            <div style={{display:'flex', justifyContent:'center'}}>
+                {keys === 2 ? (
+                    <ReactHlsPlayer
+                        src={video}
+                        autoPlay={true}
+                        controls={true}
+                        width="100%"
+                        height="auto"
+                        muted={true}
+                    />
+                )
+                    :
+                    ""
+                }
+            </div>}
+            
         </div>
     );
 }
