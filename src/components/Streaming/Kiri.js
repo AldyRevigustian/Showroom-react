@@ -42,7 +42,7 @@ function Kiri() {
         </div>}
 
         {isTabletOrMobile && 
-        <div className="kiri" style={{ display: 'flex', flexDirection: 'column', backgroundColor: '#EEEEEE', marginTop:'30px', height: '500px' }}>
+        <div className="kiri" style={{ display: 'flex', maxHeight:'530px',flexDirection: 'column', backgroundColor: '#EEEEEE', marginTop:'30px',   }}>
             <div style={{ display: 'flex', flexDirection: 'row',  backgroundColor: '#222831'   }}>
                 <Button onClick={setActiveComment} variant="success" style={{ color: toggle === "comment" ? 'white' : '#e3e3e3',  fontWeight: toggle ==='comment' ? 'bold' : "100",borderRadius: "10px 10px 0 0" }}>Comments</Button>
                 <Button onClick={setActiveRank} variant="warning" style={{ color: toggle === "rank" ? 'white' : '#e3e3e3',  fontWeight: toggle ==='rank' ? 'bold' : "100",borderRadius: "10px 10px 0 0" }} >Ranks</Button>

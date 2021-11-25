@@ -18,7 +18,7 @@ function Tengah() {
             </div> }
 
             {isTabletOrMobile &&
-            <div className="tengah" style={{ display: 'flex', flexDirection: 'column', flex: "70%", marginTop:'20px'}}>
+            <div className="tengah" style={{ display: 'flex', flexDirection: 'column', flex: "70%",}}>
                 <Videos />
                 <ProfileStream />
             </div> }

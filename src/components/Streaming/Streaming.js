@@ -39,7 +39,7 @@ function Streaming() {
 
     // console.log(profiles);
     return (
-        <div style={{overflowY:'hidden'}}>
+        <div>
             {isDesktopOrLaptop && 
                 <div style={{ display: 'flex', alignItems: 'center', height: '100vh', flex: 1, backgroundColor: '#222831', justifyContent: 'center', }}>
                 {loading ? (

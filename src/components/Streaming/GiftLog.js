@@ -33,7 +33,7 @@ function Gifts() {
                 <div>
                     {gifts.gift_log && gifts.gift_log.map((gift) => (
                             <div style={{transform: "scaleX(-1)"}}>
-                                <div className="" style={{padding:'14px 0 0 10px', display:'flex', flexDirection:'row'}}>
+                                <div className="" style={{padding:'14px 0 10px 10px', display:'flex', flexDirection:'row'}}>
                                 <img alt="" style={{width:'30px',height:'30px', margin:'5px 10px 0 0', display:'flex', flex:0.4}} src={gift.avatar_url} />
                                     <div style={{display:'flex', flexDirection:'column', flex:3}}>
                                             <span style={{color:'white', fontSize:13, margin:'0px 0 0px 0', fontWeight:'bold'}}>{gift.name}</span>
