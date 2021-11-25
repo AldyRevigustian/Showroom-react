@@ -5,7 +5,7 @@ import { useMediaQuery } from 'react-responsive'
 
 function Tengah() {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' })
-    const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
+    // const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
 

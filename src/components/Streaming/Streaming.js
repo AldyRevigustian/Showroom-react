@@ -15,7 +15,7 @@ import { useMediaQuery } from 'react-responsive'
 
 function Streaming() {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' })
-    const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
+    // const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
     const [profiles, setProfiles] = useState('');
@@ -106,7 +106,7 @@ function Streaming() {
                             (
                                 <div style={{ userSelect: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', flex: 1, flexDirection: 'column' }}>
                                     <div>
-                                        <h2 style={{ color: 'white', fontSize:18 }}>The Streamer Is Offline / No Streamer With This ID</h2>
+                                        <h2 style={{ color: 'white', fontSize:15 }}>The Streamer Is Offline / No Streamer With This ID</h2>
                                     </div>
                                     <div style={{ marginTop: 30 }}>
                                         <Link style={{ display: "inline", fontWeight: 'bold', fontSize: '20px', backgroundColor: '#FF0000', padding: 10, borderRadius: 10, color: 'white', textDecoration: 'none' }}

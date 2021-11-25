@@ -11,7 +11,7 @@ import { useMediaQuery } from 'react-responsive'
 
 export default function RoomOnline(props) {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' })
-    const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
+    // const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
     const [profiles, setProfiles] = useState('');
@@ -52,7 +52,7 @@ export default function RoomOnline(props) {
                         (
                             <div>
                                 {profiles.is_onlive ? (
-                                    <Card className="animasi-card" style={{ width: "15rem", margin: 10 }}>
+                                    <Card className="animasi-card" style={{ width: "12rem", margin: 10,zIndex:2,zIndex:2 }}>
                                         <Card.Img variant="top" src={profiles.image} />
                                         <Card.Body>
                                             <Card.Title style={{ fontSize: 13, marginBottom: 10, }}>{profiles.room_url_key}
@@ -70,7 +70,7 @@ export default function RoomOnline(props) {
                         )
                         :
                         (
-                            <div style={{ marginRight: "-45px", marginTop: '30px', marginLeft: '10px' }}>
+                            <div style={{ marginRight: "-20px", marginTop: '30px', marginLeft: '-15px', position:'relative',zIndex:1  }}>
                                 <Spinner animation="border" variant="secondary" />
                             </div>
                         )}
@@ -83,7 +83,7 @@ export default function RoomOnline(props) {
                         (
                             <div>
                                 {profiles.is_onlive ? (
-                                    <Card className="animasi-card" style={{ width: "10rem", margin: 10 }}>
+                                    <Card className="animasi-card" style={{ width: "10rem", margin: 10 , position:'relative', zIndex:2}}>
                                         <Card.Img variant="top" src={profiles.image} />
                                         <Card.Body>
                                             <Card.Title style={{ fontSize: 13, marginBottom: 10, }}>{profiles.room_url_key}
@@ -101,7 +101,7 @@ export default function RoomOnline(props) {
                         )
                         :
                         (
-                            <div style={{ marginRight: "-20px", marginTop: '30px', marginLeft: '-15px' }}>
+                            <div style={{ marginRight: "-20px", marginTop: '30px', marginLeft: '-15px',position:'relative', zIndex:1 }}>
                                 <Spinner animation="grow" variant="secondary" />
                             </div>
                         )}

@@ -3,12 +3,12 @@ import React, { useState, useEffect } from "react";
 import { Card, Spinner } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { API_URL_PROFILE } from "../../utils/constant";
-import loadings from '../../img/loading.png'
+// import loadings from '../../img/loading.png'
 import { useMediaQuery } from 'react-responsive'
 
 export default function RoomOffline(props) {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' })
-    const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
+    // const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
     const [profiles, setProfiles] = useState('');
@@ -39,7 +39,7 @@ export default function RoomOffline(props) {
     //     },100)
     // },[])
 
-    console.log(profiles);
+    // console.log(profiles);
     return (
         <div>
             {/* DEKSTOP */}
@@ -49,7 +49,7 @@ export default function RoomOffline(props) {
                         (
                             <div>
                                 {profiles.is_onlive === false ? (
-                                    <Card style={{ width: "15rem", margin: 10 }}>
+                                    <Card style={{ width: "10rem", margin: 10,zIndex:2 }}>
                                         <Card.Img variant="top" src={profiles.image} />
                                         <Card.Body>
                                             <Card.Title style={{ fontSize: 13, marginBottom: 0 }}>{profiles.room_url_key}</Card.Title>
@@ -62,7 +62,7 @@ export default function RoomOffline(props) {
 
                         :
                         (
-                            <div style={{ marginRight: "-45px", marginTop: '30px', marginLeft: '10px' }}>
+                            <div style={{ marginRight: "-20px", marginTop: '30px', marginLeft: '-15px', position:'relative',zIndex:1  }}>
                                 <Spinner animation="border" variant="secondary" />
                             </div>
                             // <Card style={{ width: "15rem", margin: 10 }}>
@@ -82,7 +82,7 @@ export default function RoomOffline(props) {
                         (
                             <div>
                                 {profiles.is_onlive === false ? (
-                                    <Card style={{ width: "10rem", margin: 10 }}>
+                                    <Card style={{ width: "10rem", margin: 10 , position:'relative', zIndex:2}}>
                                         <Card.Img variant="top" src={profiles.image} />
                                         <Card.Body>
                                             <Card.Title style={{ fontSize: 13, marginBottom: 0 }}>{profiles.room_url_key}</Card.Title>
@@ -95,7 +95,7 @@ export default function RoomOffline(props) {
 
                         :
                         (
-                            <div style={{ marginRight: "-20px", marginTop: '30px', marginLeft: '-15px' }}>
+                            <div style={{ marginRight: "-20px", marginTop: '30px', marginLeft: '-15px', position:'relative',zIndex:1  }}>
                                 <Spinner animation="grow" variant="secondary" />
                             </div>
                             // <Card style={{ width: "12rem", margin: 10 }}>

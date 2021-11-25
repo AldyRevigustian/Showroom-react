@@ -26,7 +26,7 @@ function Gifts() {
         getGifts();
     });
 
-    console.log(gifts.gift_log);
+    // console.log(gifts.gift_log);
     return (
         <div style={{userSelect:'none', height:'500px', transform: "scaleX(-1)",overflowY:'scroll',width:300, display:'flex', flexDirection:'column', flex:1, backgroundColor:'#393E46'}}>
             {gifts.gift_log ? (
