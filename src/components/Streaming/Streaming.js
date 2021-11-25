@@ -39,7 +39,7 @@ function Streaming() {
 
     // console.log(profiles);
     return (
-        <>
+        <div style={{overflowY:'hidden'}}>
             {isDesktopOrLaptop && 
                 <div style={{ display: 'flex', alignItems: 'center', height: '100vh', flex: 1, backgroundColor: '#222831', justifyContent: 'center', }}>
                 {loading ? (
@@ -88,7 +88,7 @@ function Streaming() {
 
 
             {isTabletOrMobile && 
-                <div style={{ display: 'flex', alignItems: 'center', height: '150vh', flex: 1, backgroundColor: '#222831', justifyContent: 'center', }}>
+                <div style={{ display: 'flex', alignItems: 'center', maxHeight: '150vh', flex: 1, backgroundColor: '#222831', justifyContent: 'center', }}>
                 {loading ? (
                     <div style={{ backgroundColor: '#222831', display: 'flex' }}>
                         {profiles.is_onlive === true ? (
@@ -122,7 +122,7 @@ function Streaming() {
                     :
 
                     (
-                        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                        <div style={{height:'100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                             <div style={{ display: 'block' }}>
                                 <h3 style={{ color: 'white' }}>Loading</h3>
                             </div>
@@ -134,7 +134,7 @@ function Streaming() {
             </div>}
 
 
-        </>
+        </div>
     );
 }
 

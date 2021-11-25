@@ -82,7 +82,7 @@ export default function RoomOffline(props) {
                         (
                             <div>
                                 {profiles.is_onlive === false ? (
-                                    <Card style={{ width: "12rem", margin: 10 }}>
+                                    <Card style={{ width: "10rem", margin: 10 }}>
                                         <Card.Img variant="top" src={profiles.image} />
                                         <Card.Body>
                                             <Card.Title style={{ fontSize: 13, marginBottom: 0 }}>{profiles.room_url_key}</Card.Title>
