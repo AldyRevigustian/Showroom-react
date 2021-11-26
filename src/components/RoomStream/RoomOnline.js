@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Card, Spinner } from 'react-bootstrap';
+import { Card, Spinner, Badge } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { API_URL_PROFILE } from "../../utils/constant";
 import { Link } from "react-router-dom";
 import './style.css';
 import { useMediaQuery } from 'react-responsive'
-
-
+import Moment from 'react-moment';
+import { CgEnter } from "react-icons/cg";
 
 export default function RoomOnline(props) {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1224px)' })
@@ -44,6 +44,8 @@ export default function RoomOnline(props) {
     // },[])
 
     // console.log(profiles);
+    // console.log(profiles.current_live_started_at);
+        
     return (
         <div>
             {isDesktopOrLaptop &&
@@ -52,16 +54,18 @@ export default function RoomOnline(props) {
                         (
                             <div>
                                 {profiles.is_onlive ? (
-                                    <Card className="animasi-card" style={{ width: "12rem", margin: 10,zIndex:2,zIndex:2 }}>
+                                    <Card className="animasi-card" style={{ width: "12rem", margin: 10,zIndex:2,}}>
                                         <Card.Img variant="top" src={profiles.image} />
                                         <Card.Body>
-                                            <Card.Title style={{ fontSize: 13, marginBottom: 10, }}>{profiles.room_url_key}
+                                            <Card.Title style={{ fontSize: 13, marginBottom: 10, }}>{profiles.room_url_key} 
+                                            <Badge style={{marginLeft:10}} bg="success">
+                                                <Moment unix format="hh:mm">{profiles.current_live_started_at}</Moment>
+                                            </Badge>
                                             </Card.Title>
                                             <Link
                                                 style={{ display: "inline", backgroundColor: 'red', padding: 5, borderRadius: 5, color: 'white', textDecoration: 'none', fontSize: 15 }}
                                                 to={`/streaming/${profiles.room_id}`}>
-                                                Live </Link>
-
+                                                Live <CgEnter/></Link>
                                         </Card.Body>
                                     </Card>
                                 ) : ""}
@@ -87,11 +91,14 @@ export default function RoomOnline(props) {
                                         <Card.Img variant="top" src={profiles.image} />
                                         <Card.Body>
                                             <Card.Title style={{ fontSize: 13, marginBottom: 10, }}>{profiles.room_url_key}
+                                            <Badge  bg="success">
+                                                <Moment unix format="hh:mm">{profiles.current_live_started_at}</Moment>
+                                            </Badge>
                                             </Card.Title>
                                             <Link
                                                 style={{ display: "inline", backgroundColor: 'red', padding: 5, borderRadius: 5, color: 'white', textDecoration: 'none', fontSize: 15 }}
                                                 to={`/streaming/${profiles.room_id}`}>
-                                                Live </Link>
+                                                Live <CgEnter/></Link>
 
                                         </Card.Body>
                                     </Card>

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Card, Spinner } from 'react-bootstrap';
+import { Card, Spinner,} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { API_URL_PROFILE } from "../../utils/constant";
 // import loadings from '../../img/loading.png'
@@ -40,6 +40,7 @@ export default function RoomOffline(props) {
     // },[])
 
     // console.log(profiles);
+
     return (
         <div>
             {/* DEKSTOP */}
@@ -53,6 +54,9 @@ export default function RoomOffline(props) {
                                         <Card.Img variant="top" src={profiles.image} />
                                         <Card.Body>
                                             <Card.Title style={{ fontSize: 13, marginBottom: 0 }}>{profiles.room_url_key}</Card.Title>
+                                            {/* <Badge style={{marginLeft:10}} bg="success">
+                                                <Moment unix format="hh:mm">{profiles.current_live_started_at}</Moment>
+                                            </Badge> */}
                                         </Card.Body>
                                     </Card>
                                 ) : ""}
