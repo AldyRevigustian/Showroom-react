@@ -1,7 +1,6 @@
 {
   "name": "showroom-api",
   "version": "0.1.0",
-  "proxy": "https://www.showroom-live.com/api/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.5.0",
