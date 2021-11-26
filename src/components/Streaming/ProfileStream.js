@@ -62,7 +62,7 @@ function ProfileStream() {
                     <WatchLater style={{fontSize:14,marginBottom:2}} /> <Moment unix format="hh:mm">{names.current_live_started_at}</Moment>
                 </Badge>
                 {/* <Button variant="danger"  style={{margin:'0 0 0 10px',  padding: '5px 10px 4px 10px', fontSize:12, }}>Showroom</Button> */}
-                <a rel="noreferrer" href={`${API_URL_SR + names.room_url_key}`} target="_blank" style={{color:'white',margin:'0 20px 0 20px', fontWeight:'bold', fontSize:'18px', textDecoration:'none'}}>{names.room_name}</a>
+                <a rel="noreferrer" href={`${API_URL_SR + names.room_url_key}`} target="_blank" style={{color:'white',margin:'0 20px 0 20px', fontWeight:'bold', fontSize:'18px', textDecoration:'none'}}>{names.room_url_key}</a>
                 <Badge bg="success" style={{display:'inline', padding: '5px 10px 4px 10px'}} ><Visibility style={{fontSize:14,marginBottom:2}} /> {names.view_num}</Badge> 
                 
             </div>

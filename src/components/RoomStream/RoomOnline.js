@@ -90,8 +90,8 @@ export default function RoomOnline(props) {
                                     <Card className="animasi-card" style={{ width: "10rem", margin: 10 , position:'relative', zIndex:2}}>
                                         <Card.Img variant="top" src={profiles.image} />
                                         <Card.Body>
-                                            <Card.Title style={{ fontSize: 13, marginBottom: 10, }}>{profiles.room_url_key}
-                                            <Badge  bg="success">
+                                            <Card.Title style={{ fontSize: 13, marginBottom: 10, }}><p style={{marginBottom:5}}>{profiles.room_url_key}</p>
+                                            <Badge style={{display:'block'}} bg="success">
                                                 <Moment unix format="hh:mm">{profiles.current_live_started_at}</Moment>
                                             </Badge>
                                             </Card.Title>
