@@ -42,3 +42,7 @@ export const memberId = [
     "317738",
     "356039",
 ];
+
+export const DOMAIN = 'http://localhost:8000'
+export const ROOM = DOMAIN + '/api/rooms'
+export const LOGIN = DOMAIN + '/api/login'
