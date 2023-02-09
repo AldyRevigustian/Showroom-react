@@ -27,13 +27,10 @@ function Videos() {
     }, []);// eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        // console.log(videos),
             <div className="video" style={{userSelect:'none',display:'flex', justifyContent:'center',alignContent:'center'}}>
                 {videos.streaming_url_list &&
-                    videos.streaming_url_list.map((video) => (
-                        <>
-                            <Video keys={video.id} video={video.url} />
-                        </>
+                    videos.streaming_url_list.map((video, index) => (
+                            <Video keys={video.id} video={video.url} key={index}/>
                     ))}
             </div>
     );

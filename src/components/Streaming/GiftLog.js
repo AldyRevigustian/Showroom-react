@@ -24,7 +24,7 @@ function Gifts() {
 
     useEffect(() => {
         getGifts();
-    });
+    },[]);
 
     // console.log(gifts.gift_log);
     return (

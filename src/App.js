@@ -2,9 +2,9 @@ import Home from "./pages/Home";
 
 function App() {
   return (
-    <div>
+    // <div style={{ backgroundColor:'#282C34' }}>
       <Home />
-    </div>
+    // </div>
   );
 }
 

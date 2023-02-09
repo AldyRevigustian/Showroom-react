@@ -15,10 +15,12 @@ function Home() {
     const [captcha, setCaptcha] = useState("");
     const [error, setError] = useState("");
     const [user, setUser] = useState("");
+    const [profile, setProfile] = useState("");
+    const [session, setSession] = useState("");
     const [buttonLoading, setButtonLoading] = useState(false);
 
     useEffect(() => {
-        const getNames = () => {
+        const getRooms = () => {
             axios
                 .get(ROOM)
                 .then((response) => {
@@ -30,15 +32,21 @@ function Home() {
                     console.log(error);
                 });
         };
-        getNames();
+        getRooms();
+
 
         const loggedInUser = localStorage.getItem("user");
-        if (loggedInUser) {
+        const userSession = localStorage.getItem("session");
+        const userProfile = localStorage.getItem("profile");
+
+        if (loggedInUser && userSession) {
             const foundUser = JSON.parse(loggedInUser);
+            const foundSession = JSON.parse(userSession);
+            const foundProfile = JSON.parse(userProfile);
             setUser(foundUser);
-            console.log(foundUser);
+            setSession(foundSession);
+            setProfile(foundProfile);
         }
-        console.log(rooms);
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleSubmit = async (e) => {
@@ -62,7 +70,12 @@ function Home() {
             if (response.data.user.ok) {
                 setButtonLoading(false);
                 console.log("berhasil");
+
                 localStorage.setItem("user", JSON.stringify(response.data.user));
+                localStorage.setItem("session", JSON.stringify(response.data.session));
+                localStorage.setItem("profile", JSON.stringify(response.data.profile));
+
+                window.location.reload(false);
             }
         } catch (err) {
             setButtonLoading(false);
@@ -72,58 +85,61 @@ function Home() {
 
     return (
         <div>
-            <nav
-                className="navbar navbar-dark navbar-expand-sm fixed-top"
-                style={{ backgroundColor: "#21252B" }}
-            >
+            <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
                 <div className="container">
-                    <a href="/" className="navbar-brand">
-                        <h2 className="mb-2">Sorum Mint</h2>
-                    </a>
-                    <button
-                        className="navbar-toggler"
-                        type="button"
-                        data-toggle="collapse"
-                        data-target="#navbarCollapse"
-                    >
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div id="navbarCollapse" className="collapse navbar-collapse">
-                        <ul className="navbar-nav" style={{ marginLeft: "auto" }}>
-                            <li className="nav-item">
-                                <a href="" className="nav-link active">
-                                    Home
-                                </a>
+                    <div className="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                        <ul className="navbar-nav ml-auto">
+                            <li className="nav-item active">
+                                <a className="nav-link" href="#">Left</a>
                             </li>
                             <li className="nav-item">
-                                <a href="" className="nav-link">
-                                    Blog
-                                </a>
+                                <a className="nav-link" href="//codeply.com">Codeply</a>
                             </li>
                             <li className="nav-item">
-                                <a href="" className="nav-link">
-                                    About
-                                </a>
+                                <a className="nav-link" href="#">Link</a>
                             </li>
                             <li className="nav-item">
-                                <a href="" className="nav-link">
-                                    Contact
-                                </a>
+                                <a className="nav-link" href="#">Link</a>
                             </li>
                             <li className="nav-item">
-                                <button
-                                    href=""
-                                    className="btn btn-secondary ms-5"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal"
-                                    type="button"
-                                >
-                                    Login
-                                </button>
+                                <a className="nav-link" href="#">Link</a>
                             </li>
                         </ul>
                     </div>
+                    <div className="mx-auto order-0">
+                        <a className="navbar-brand mx-auto fw-bold" href="#">Sorum Mint</a>
+                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                        <ul className="navbar-nav ms-auto">
+                            <li className="nav-item d-flex justify-content-end">
+                                {session ?
+                                    (
+                                        <div className="row justify-content-end align-items-center">
+                                            <div className="row col-10" style={{ textAlign: 'end' }}>
+                                                <span className="me-0 pe-0 fw-bold" style={{ fontSize: '1rem', display: 'inline' }}>{profile.name}</span>
+                                                <span className="me-0 pe-0" style={{ fontSize: '0.8rem', lineHeight: '0.8rem', }}>{user.user_id}</span>
+                                            </div>
+                                            <img src={profile.image} alt="" style={{ width: '13%' }} className="rounded-circle col-2" />
+                                        </div>
+                                    )
+                                    :
+                                    <button
+                                        href=""
+                                        className="btn btn-secondary"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal"
+                                        type="button"
+                                    >
+                                        Login
+                                    </button>
+                                }
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
             </nav>
 
@@ -206,6 +222,9 @@ function Home() {
                                         onChange={(e) => setPassword(e.target.value)}
                                     />
                                 </div>
+                                <p style={{ color: 'red' }}>
+                                    {error ? error : ''}
+                                </p>
 
                                 <div className="mb-3" id="captcha" style={{ display: "none" }}>
                                     <label className="form-label">

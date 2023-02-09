@@ -23,7 +23,7 @@ function Ranks() {
 
     useEffect(() => {
         getRanks();
-    });
+    },[]);
 
     // console.log(ranks.stage_user_list);
     return (
