@@ -17,8 +17,9 @@ function Kiri() {
     const [comment, setComment] = useState("");
     const [session, setSession] = useState("");
     const [names, setNames] = useState("");
-    let params = useParams();
+    const [buttonLoading, setButtonLoading] = useState(false);
 
+    let params = useParams();
 
     const setActiveGift = () => {
         setToggle("gift");
@@ -31,8 +32,9 @@ function Kiri() {
     };
 
     useEffect(() => {
-        const getNames =  () => {
-            axios.get(API_URL_PROFILE + params.streamingId)
+        const getNames = () => {
+            axios
+                .get(API_URL_PROFILE + params.streamingId)
                 .then((response) => {
                     const names = response.data;
                     setNames(names);
@@ -49,11 +51,11 @@ function Kiri() {
 
             setSession(foundSession);
         }
-    }, [])
+    }, []);
 
     const sendComment = async (e) => {
         e.preventDefault();
-        // setButtonLoading(true);
+        setButtonLoading(true);
         try {
             const response = await axios.post(SEND_COMMENT, {
                 live_id: names.live_id,
@@ -62,13 +64,13 @@ function Kiri() {
                 csrf: session.csrf_token,
                 cookies_id: session.cookie_login_id,
             });
+            setButtonLoading(false);
             console.log(response.data);
         } catch (err) {
-            // setButtonLoading(false);
+            setButtonLoading(false);
             // setError("Incorrect username or password");
         }
     };
-
 
     return (
         <>
@@ -128,21 +130,31 @@ function Kiri() {
                     {(() => {
                         switch (toggle) {
                             case "comment":
-                                return <>
-                                    <Comments />
-                                    <form onSubmit={sendComment}>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="exampleInputEmail1"
-                                            placeholder="Comment"
-                                            value={comment}
-                                            onChange={(e) => setComment
-                                                (e.target.value)}
-                                        />
-                                        <button type="submit" className="btn btn-secondary">Send Comment</button>
-                                    </form >
-                                </>;
+                                return (
+                                    <>
+                                        <Comments />
+                                        <form
+                                            onSubmit={sendComment}
+                                            style={{ width: 300, display: "flex" }}
+                                        >
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                id="exampleInputEmail1"
+                                                placeholder="Comment"
+                                                value={comment}
+                                                onChange={(e) => setComment(e.target.value)}
+                                            />
+                                            <button
+                                                type="submit"
+                                                className="btn btn-secondary rounded-0"
+                                                disabled={buttonLoading ? true : false}
+                                            >
+                                                {buttonLoading ? "....." : "Send"}
+                                            </button>
+                                        </form>
+                                    </>
+                                );
                             case "rank":
                                 return <Ranks />;
                             case "gift":
@@ -209,21 +221,28 @@ function Kiri() {
                     {(() => {
                         switch (toggle) {
                             case "comment":
-                                return <>
-                                    <Comments />
-                                    <form onSubmit={sendComment}>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="exampleInputEmail1"
-                                            placeholder="Comment"
-                                            value={comment}
-                                            onChange={(e) => setComment
-                                                (e.target.value)}
-                                        />
-                                        <button type="submit">Send Comment</button>
-                                    </form >
-                                </>;
+                                return (
+                                    <>
+                                        <Comments />
+                                        <form onSubmit={sendComment}>
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                id="exampleInputEmail1"
+                                                placeholder="Comment"
+                                                value={comment}
+                                                onChange={(e) => setComment(e.target.value)}
+                                            />
+                                            <button
+                                                type="submit"
+                                                className="btn btn-secondary"
+                                                disabled={buttonLoading ? true : false}
+                                            >
+                                                {buttonLoading ? "..." : "Login"}
+                                            </button>
+                                        </form>
+                                    </>
+                                );
                             case "rank":
                                 return <Ranks />;
                             case "gift":

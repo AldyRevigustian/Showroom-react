@@ -30,14 +30,6 @@ img {
     display: block;
 }
 
-.badge {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 15px;
-    /* border: 1px solid white; */
-    border-radius: 0px 15px 0px 15px;
-}
 
 .modal-header,
 .modal-content,

@@ -34,7 +34,6 @@ function Home() {
         };
         getRooms();
 
-
         const loggedInUser = localStorage.getItem("user");
         const userSession = localStorage.getItem("session");
         const userProfile = localStorage.getItem("profile");
@@ -90,42 +89,72 @@ function Home() {
                     <div className="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item active">
-                                <a className="nav-link" href="#">Left</a>
+                                <a className="nav-link" href="#">
+                                    Left
+                                </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="//codeply.com">Codeply</a>
+                                <a className="nav-link" href="//codeply.com">
+                                    Codeply
+                                </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Link</a>
+                                <a className="nav-link" href="#">
+                                    Link
+                                </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Link</a>
+                                <a className="nav-link" href="#">
+                                    Link
+                                </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Link</a>
+                                <a className="nav-link" href="#">
+                                    Link
+                                </a>
                             </li>
                         </ul>
                     </div>
                     <div className="mx-auto order-0">
-                        <a className="navbar-brand mx-auto fw-bold" href="#">Sorum Mint</a>
-                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                        <a className="navbar-brand mx-auto fw-bold" href="#">
+                            Sorum Mint
+                        </a>
+                        <button
+                            className="navbar-toggler"
+                            type="button"
+                            data-toggle="collapse"
+                            data-target=".dual-collapse2"
+                        >
                             <span className="navbar-toggler-icon"></span>
                         </button>
                     </div>
                     <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item d-flex justify-content-end">
-                                {session ?
-                                    (
-                                        <div className="row justify-content-end align-items-center">
-                                            <div className="row col-10" style={{ textAlign: 'end' }}>
-                                                <span className="me-0 pe-0 fw-bold" style={{ fontSize: '1rem', display: 'inline' }}>{profile.name}</span>
-                                                <span className="me-0 pe-0" style={{ fontSize: '0.8rem', lineHeight: '0.8rem', }}>{user.user_id}</span>
-                                            </div>
-                                            <img src={profile.image} alt="" style={{ width: '13%' }} className="rounded-circle col-2" />
+                                {session ? (
+                                    <div className="row justify-content-end align-items-center">
+                                        <div className="row col-10" style={{ textAlign: "end" }}>
+                                            <span
+                                                className="me-0 pe-0 fw-bold"
+                                                style={{ fontSize: "1rem", display: "inline" }}
+                                            >
+                                                {profile.name}
+                                            </span>
+                                            <span
+                                                className="me-0 pe-0"
+                                                style={{ fontSize: "0.8rem", lineHeight: "0.8rem" }}
+                                            >
+                                                {user.user_id}
+                                            </span>
                                         </div>
-                                    )
-                                    :
+                                        <img
+                                            src={profile.image}
+                                            alt=""
+                                            style={{ width: "13%" }}
+                                            className="rounded-circle col-2"
+                                        />
+                                    </div>
+                                ) : (
                                     <button
                                         href=""
                                         className="btn btn-secondary"
@@ -135,11 +164,10 @@ function Home() {
                                     >
                                         Login
                                     </button>
-                                }
+                                )}
                             </li>
                         </ul>
                     </div>
-
                 </div>
             </nav>
 
@@ -154,7 +182,18 @@ function Home() {
                             >
                                 <div className="card containers">
                                     {room.is_live ? (
-                                        <span className="badge bg-danger">Live</span>
+                                        <span
+                                            className="badge bg-danger"
+                                            style={{
+                                                position: "absolute",
+                                                top: 0,
+                                                right: 0,
+                                                fontSize: "15px",
+                                                borderRadius: "0px 15px 0px 15px",
+                                            }}
+                                        >
+                                            Live
+                                        </span>
                                     ) : (
                                         ""
                                     )}
@@ -194,9 +233,7 @@ function Home() {
                             <h2 className="text-center">Login</h2>
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-3 mt-5">
-                                    <label className="form-label">
-                                        Account Id
-                                    </label>
+                                    <label className="form-label">Account Id</label>
                                     <input
                                         type="number"
                                         required
@@ -209,9 +246,7 @@ function Home() {
                                     />
                                 </div>
                                 <div className="mb-3">
-                                    <label className="form-label">
-                                        Password
-                                    </label>
+                                    <label className="form-label">Password</label>
                                     <input
                                         type="password"
                                         required
@@ -222,9 +257,7 @@ function Home() {
                                         onChange={(e) => setPassword(e.target.value)}
                                     />
                                 </div>
-                                <p style={{ color: 'red' }}>
-                                    {error ? error : ''}
-                                </p>
+                                <p style={{ color: "red" }}>{error ? error : ""}</p>
 
                                 <div className="mb-3" id="captcha" style={{ display: "none" }}>
                                     <label className="form-label">
