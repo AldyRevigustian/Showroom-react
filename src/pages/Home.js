@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "../style.css";
 import "../styles/home.css";
+import { Link } from "react-router-dom";
 
 import { LOGIN, ROOM } from "../utils/constant";
 
@@ -82,6 +83,10 @@ function Home() {
         }
     };
 
+    const handleLogOut = () => {
+        localStorage.clear()
+    }
+
     return (
         <div>
             <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -132,27 +137,39 @@ function Home() {
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item d-flex justify-content-end">
                                 {session ? (
-                                    <div className="row justify-content-end align-items-center">
-                                        <div className="row col-10" style={{ textAlign: "end" }}>
-                                            <span
-                                                className="me-0 pe-0 fw-bold"
-                                                style={{ fontSize: "1rem", display: "inline" }}
-                                            >
-                                                {profile.name}
-                                            </span>
-                                            <span
-                                                className="me-0 pe-0"
-                                                style={{ fontSize: "0.8rem", lineHeight: "0.8rem" }}
-                                            >
-                                                {user.user_id}
-                                            </span>
-                                        </div>
-                                        <img
-                                            src={profile.image}
-                                            alt=""
-                                            style={{ width: "13%" }}
-                                            className="rounded-circle col-2"
-                                        />
+                                    <div className="dropdown">
+                                        <a className="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ textDecoration: "none", color: 'white' }}>
+                                            <div className="row justify-content-end align-items-center">
+                                                <div className="row col-10" style={{ textAlign: "end" }}>
+                                                    <span
+                                                        className="me-0 pe-0 fw-bold"
+                                                        style={{ fontSize: "1rem", display: "inline" }}
+                                                    >
+                                                        {profile.name}
+                                                    </span>
+                                                    <span
+                                                        className="me-0 pe-0"
+                                                        style={{ fontSize: "0.8rem", lineHeight: "0.8rem" }}
+                                                    >
+                                                        {user.user_id}
+                                                    </span>
+                                                </div>
+                                                <img
+                                                    src={profile.image}
+                                                    alt=""
+                                                    style={{ width: "13%" }}
+                                                    className="rounded-circle col-2"
+                                                />
+                                            </div>
+                                        </a>
+                                        <ul className="dropdown-menu dropdown-menu-end">
+
+                                            <li>
+                                                <form onSubmit={handleLogOut} className="dropdown-item">
+                                                    <button type="submit" className="dropdown-item">Logout</button>
+                                                </form>
+                                            </li>
+                                        </ul>
                                     </div>
                                 ) : (
                                     <button
@@ -176,36 +193,39 @@ function Home() {
                     <h3 className="mt-5 mb-3">Room List</h3>
                     {loading
                         ? rooms.map((room, index) => (
-                            <div
-                                className="col-6 col-md-4 col-sm-6 col-lg-4 py-3 pe-4"
-                                key={index}
-                            >
-                                <div className="card containers">
-                                    {room.is_live ? (
-                                        <span
-                                            className="badge bg-danger"
-                                            style={{
-                                                position: "absolute",
-                                                top: 0,
-                                                right: 0,
-                                                fontSize: "15px",
-                                                borderRadius: "0px 15px 0px 15px",
-                                            }}
-                                        >
-                                            Live
-                                        </span>
-                                    ) : (
-                                        ""
-                                    )}
-                                    <div className="pickgradient">
-                                        <img
-                                            className="card-img-top"
-                                            src={room.image_url}
-                                            alt="Card image cap"
-                                        />
+
+                            <div className="col-6 col-md-4 col-sm-6 col-lg-4 py-3 pe-4"
+                                key={index}>
+                                <Link
+                                    style={{ display: "inline" }}
+                                    to={`/streaming/${room.id}`}>
+                                    <div className="card containers">
+                                        {room.is_live ? (
+                                            <span
+                                                className="badge bg-danger"
+                                                style={{
+                                                    position: "absolute",
+                                                    top: 0,
+                                                    right: 0,
+                                                    fontSize: "15px",
+                                                    borderRadius: "0px 15px 0px 15px",
+                                                }}
+                                            >
+                                                Live
+                                            </span>
+                                        ) : (
+                                            ""
+                                        )}
+                                        <div className="pickgradient">
+                                            <img
+                                                className="card-img-top"
+                                                src={room.image_url}
+                                                alt="Card image cap"
+                                            />
+                                        </div>
+                                        <h5 className="card-title bottom-left">{room.name}</h5>
                                     </div>
-                                    <h5 className="card-title bottom-left">{room.name}</h5>
-                                </div>
+                                </Link>
                             </div>
                         ))
                         : ""}

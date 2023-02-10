@@ -25,8 +25,8 @@
     "react-router": "^6.0.1",
     "react-router-dom": "^6.0.1",
     "react-screen-orientation": "0.0.4",
-    "react-scripts": "4.0.3",
-    "serve": "^13.0.2",
+    "react-scripts": "^5.0.1",
+    "serve": "^14.2.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

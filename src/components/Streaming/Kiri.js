@@ -66,6 +66,7 @@ function Kiri() {
             });
             setButtonLoading(false);
             console.log(response.data);
+            setComment('')
         } catch (err) {
             setButtonLoading(false);
             // setError("Incorrect username or password");
@@ -166,7 +167,7 @@ function Kiri() {
                 </div>
             )}
 
-            {isTabletOrMobile && (
+            {/* {isTabletOrMobile && (
                 <div
                     className="kiri"
                     style={{
@@ -252,7 +253,7 @@ function Kiri() {
                         }
                     })()}
                 </div>
-            )}
+            )} */}
         </>
     );
 }

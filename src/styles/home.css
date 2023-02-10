@@ -38,3 +38,4 @@ img {
     color: #282C34;
 }
 
+.dropdown-toggle:after { content: none }

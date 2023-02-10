@@ -30,10 +30,12 @@ function Ranks() {
         <div className="ranks" style={{ userSelect: 'none', height: '500px', transform: "scaleX(-1)", overflowY: 'scroll', width: 300, display: 'flex', flexDirection: 'column', flex: 1, backgroundColor: '#393E46' }}>
             {ranks.stage_user_list ? (
                 <div>
-                    {ranks.stage_user_list && ranks.stage_user_list.map((rank) => (
-                        <div style={{ transform: "scaleX(-1)" }}>
-                            <div className="" style={{ padding: '14px 0 0 10px' }}>
-                                <span style={{ color: 'white', fontSize: 13 }}>{rank.rank}</span><img alt="" style={{ width: '10%', margin: '0 10px 0 10px' }} src={rank.user.avatar_url} /><span style={{ color: 'white', fontSize: 12, margin: '10px 0 10px 0', fontWeight: 'bold' }}>{rank.user.name}</span>
+                    {ranks.stage_user_list && ranks.stage_user_list.map((rank, index) => (
+                        <div key={index}>
+                            <div style={{ transform: "scaleX(-1)" }}>
+                                <div className="" style={{ padding: '14px 0 0 10px' }}>
+                                    <span style={{ color: 'white', fontSize: 13 }}>{rank.rank}</span><img alt="" style={{ width: '10%', margin: '0 10px 0 10px' }} src={rank.user.avatar_url} /><span style={{ color: 'white', fontSize: 12, margin: '10px 0 10px 0', fontWeight: 'bold' }}>{rank.user.name}</span>
+                                </div>
                             </div>
                         </div>
                     ))}

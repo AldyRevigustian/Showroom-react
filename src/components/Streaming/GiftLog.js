@@ -31,7 +31,8 @@ function Gifts() {
         <div style={{userSelect:'none', height:'500px', transform: "scaleX(-1)",overflowY:'scroll',width:300, display:'flex', flexDirection:'column', flex:1, backgroundColor:'#393E46'}}>
             {gifts.gift_log ? (
                 <div>
-                    {gifts.gift_log && gifts.gift_log.map((gift) => (
+                    {gifts.gift_log && gifts.gift_log.map((gift, index) => (
+                        <div key={index}>
                             <div style={{transform: "scaleX(-1)"}}>
                                 <div className="" style={{padding:'14px 0 10px 10px', display:'flex', flexDirection:'row'}}>
                                 <img alt="" style={{width:'30px',height:'30px', margin:'5px 10px 0 0', display:'flex', flex:0.4}} src={gift.avatar_url} />
@@ -41,6 +42,7 @@ function Gifts() {
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         ))}
                 </div>
             ) 
